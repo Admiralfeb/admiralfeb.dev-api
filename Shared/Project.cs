@@ -1,24 +1,15 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-
-namespace Admiralfeb_dev.Shared;
-public class Project
+﻿namespace Admiralfeb_dev.Shared;
+public sealed class Project : DatabaseItem
 {
-    [BsonId]
-    public ObjectId Id { get; set; }
+    public Project(string id) : base(id) { }
 
-    [BsonElement("name")]
-    public string Name { get; set; }
+    public string Name { get; set; } = "";
 
-    [BsonElement("url")]
-    public string Url { get; set; }
+    public string Url { get; set; } = "";
 
-    [BsonElement("gitUrl")]
-    public string GitUrl { get; set; }
+    public string GitUrl { get; set; } = "https://github.com/admiralfeb";
 
-    [BsonElement("description")]
-    public string Description { get; set; }
+    public string Description { get; set; } = "";
 
-    [BsonElement("technologies")]
-    public List<string> Technologies { get; set; }
+    public IEnumerable<string> Technologies { get; set; } = new List<string>();
 }
